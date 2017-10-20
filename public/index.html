@@ -2,6 +2,16 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <script type="text/javascript">
+          var box = document.querySelector('a-box');
+          var actions = [];
+          actions['w'] = function(){
+              box.setAttribute('position', '1 1 1');
+          }
+          document.addEventListener("keydown", function(e){
+
+          });
+        </script>
         <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
         <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"></script>
         <title>AR</title>
@@ -15,10 +25,4 @@
         <a-entity keyboard-controls id="keyboard-controls"></a-entity>
         </a-scene>
   </body>
-
-  <script type="text/javascript">
-  var el = document.querySelector('#keyboard-controls');
-  var keyboardControls = el.components['keyboard-controls'];
-  console.log(keyboardControls.isPressed('KeyA'));
-  </script>
 </html>
