@@ -5,14 +5,16 @@
         <script type="text/javascript">
           var box;
           var actions = [];
-          actions['w'] = function(){
-              box.setAttribute('position', '1 1 1');
-              console.log(box);
-          }
+          actions['w'] = function(position){ box.setAttribute('position', (parseFloat(position[0]) + 0.1) + ' ' + position[1] + ' ' + position[2]); }
+          actions['a'] = function(position){ box.setAttribute('position', position[0] + ' ' + (parseFloat(position[1]) - 0.1) + ' ' + position[2]); }
+          actions['s'] = function(position){ box.setAttribute('position', (parseFloat(position[0]) - 0.1) + ' ' + position[1] + ' ' + position[2]); }
+          actions['d'] = function(position){ box.setAttribute('position', position[0] + ' ' + (parseFloat(position[1]) + 0.1) + ' ' + position[2]); }
+          actions['ArrowUp'] = function(position){ box.setAttribute('position', position[0] + ' ' + position[1] + ' ' + (parseFloat(position[2]) + 0.1)); }
+          actions['ArrowDown'] = function(position){ box.setAttribute('position', position[0] + ' ' + position[1] + ' ' + (parseFloat(position[2]) - 0.1)); }
           document.addEventListener("keydown", function(e){
               if(!box) box = document.querySelector('a-box');
               var action = actions[e.key];
-              if(action) action();
+              if(action) action(box.position.split(' '));
           });
         </script>
         <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
