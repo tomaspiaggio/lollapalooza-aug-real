@@ -30,6 +30,9 @@
     actions['d'] = function(){
         box.setAttribute('position', '2 2 2');
     }
-    document.addEventListener('keydown', function(e){})
+    document.addEventListener('keydown', function(e){
+        var func = actions[e.key];
+        if(func) func();
+    })
   </script>
 </html>
