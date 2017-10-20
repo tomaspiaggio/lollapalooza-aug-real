@@ -5,12 +5,12 @@
         <script type="text/javascript">
           var box;
           var actions = [];
-          actions['w'] = function(position){ box.setAttribute('position', (position.x + +0.1) + ' ' + position[1] + ' ' + position[2]); }
-          actions['a'] = function(position){ box.setAttribute('position', position[0] + ' ' + (position.y - +0.1) + ' ' + position[2]); }
-          actions['s'] = function(position){ box.setAttribute('position', (position.x - +0.1) + ' ' + position[1] + ' ' + position[2]); }
-          actions['d'] = function(position){ box.setAttribute('position', position[0] + ' ' + (position.y + +0.1) + ' ' + position[2]); }
-          actions['ArrowUp'] = function(position){ box.setAttribute('position', position[0] + ' ' + position[1] + ' ' + (position.z + +0.1)); }
-          actions['ArrowDown'] = function(position){ box.setAttribute('position', position[0] + ' ' + position[1] + ' ' + (position.z - +0.1)); }
+          actions['w'] = function(position){ box.setAttribute('position', {x: (position.x + +0.1), y: position.y, z: position.z });}
+          actions['a'] = function(position){ box.setAttribute('position', {x: position.x, y: (position.y - +0.1), z: position.z});}
+          actions['s'] = function(position){ box.setAttribute('position', {x: (position.x - +0.1), y: position.y, z: position.z});}
+          actions['d'] = function(position){ box.setAttribute('position', {x: position.x, y: (position.y + +0.1), z: position.z});}
+          actions['ArrowUp'] = function(position){ box.setAttribute('position', {x: position.x, y: position.y, z: (position.z + +0.1)});}
+          actions['ArrowDown'] = function(position){ box.setAttribute('position', {x: position.x, y: position.y, z: (position.z - +0.1)});}
           document.addEventListener("keydown", function(e){
               if(!box) box = document.querySelector('a-box');
               var action = actions[e.key];
