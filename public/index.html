@@ -14,6 +14,8 @@
           document.addEventListener("keydown", function(e){
               if(!box) box = document.querySelector('a-box');
               var action = actions[e.key];
+              console.log(box);
+              console.log(box.position);
               if(action) action(box.position.split(' '));
           });
         </script>
