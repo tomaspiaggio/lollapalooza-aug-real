@@ -5,18 +5,16 @@
         <script type="text/javascript">
           var box;
           var actions = [];
-          actions['w'] = function(position){ box.setAttribute('position', (parseFloat(position[0]) + 0.1) + ' ' + position[1] + ' ' + position[2]); }
-          actions['a'] = function(position){ box.setAttribute('position', position[0] + ' ' + (parseFloat(position[1]) - 0.1) + ' ' + position[2]); }
-          actions['s'] = function(position){ box.setAttribute('position', (parseFloat(position[0]) - 0.1) + ' ' + position[1] + ' ' + position[2]); }
-          actions['d'] = function(position){ box.setAttribute('position', position[0] + ' ' + (parseFloat(position[1]) + 0.1) + ' ' + position[2]); }
-          actions['ArrowUp'] = function(position){ box.setAttribute('position', position[0] + ' ' + position[1] + ' ' + (parseFloat(position[2]) + 0.1)); }
-          actions['ArrowDown'] = function(position){ box.setAttribute('position', position[0] + ' ' + position[1] + ' ' + (parseFloat(position[2]) - 0.1)); }
+          actions['w'] = function(position){ box.setAttribute('position', (position.x + 0.1) + ' ' + position[1] + ' ' + position[2]); }
+          actions['a'] = function(position){ box.setAttribute('position', position[0] + ' ' + (position.y - 0.1) + ' ' + position[2]); }
+          actions['s'] = function(position){ box.setAttribute('position', (position.x - 0.1) + ' ' + position[1] + ' ' + position[2]); }
+          actions['d'] = function(position){ box.setAttribute('position', position[0] + ' ' + (position.y + 0.1) + ' ' + position[2]); }
+          actions['ArrowUp'] = function(position){ box.setAttribute('position', position[0] + ' ' + position[1] + ' ' + (position.z + 0.1)); }
+          actions['ArrowDown'] = function(position){ box.setAttribute('position', position[0] + ' ' + position[1] + ' ' + (position.z - 0.1)); }
           document.addEventListener("keydown", function(e){
               if(!box) box = document.querySelector('a-box');
               var action = actions[e.key];
-              console.log(box);
-              console.log(box.position);
-              if(action) action(box.position.split(' '));
+              if(action) action(box.position.getAttribute('position'));
           });
         </script>
         <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
