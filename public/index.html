@@ -2,6 +2,10 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <script type="text/javascript" src="app.js"></script>
+        <script src="https://rawgit.com/ngokevin/aframe-animation-component/master/dist/aframe-animation-component.min.js"></script>
+        <script src="https://rawgit.com/protyze/aframe-curve-component/master/dist/aframe-curve-component.min.js"></script>
+        <script src="https://rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
         <script type="text/javascript">
           var box;
           var actions = [];
@@ -12,9 +16,9 @@
           actions['ArrowUp'] = function(position){ box.setAttribute('position', {x: position.x, y: position.y, z: (position.z + +0.1)});}
           actions['ArrowDown'] = function(position){ box.setAttribute('position', {x: position.x, y: position.y, z: (position.z - +0.1)});}
           document.addEventListener("keydown", function(e){
-              if(!box) box = document.querySelector('a-box');
+              if(!marker) marker = document.querySelector('a-marker');
               var action = actions[e.key];
-              if(action) action(box.getAttribute('position'));
+              if(action) action(marker.getAttribute('position'));
           });
         </script>
         <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
@@ -24,7 +28,7 @@
     <body style='margin : 0px; overflow: hidden;'>
         <a-scene embedded arjs>
       	<a-marker preset="hiro">
-                <a-box position='0 0.5 0' material='color: white;' src="/dado.jpg"></a-box>
+                <!-- <a-box position='0 0.5 0' material='color: white;' src="/dado.jpg"></a-box> -->
       	</a-marker>
       	<a-entity camera></a-entity>
         <a-entity keyboard-controls id="keyboard-controls"></a-entity>
