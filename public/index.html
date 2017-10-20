@@ -14,7 +14,7 @@
           document.addEventListener("keydown", function(e){
               if(!box) box = document.querySelector('a-box');
               var action = actions[e.key];
-              if(action) action(box.position.getAttribute('position'));
+              if(action) action(box.getAttribute('position'));
           });
         </script>
         <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
